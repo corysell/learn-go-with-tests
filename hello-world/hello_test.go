@@ -9,18 +9,21 @@ func TestHello(t *testing.T) {
 		assertCorrectMessage(t, got, want)
 
 	})
+	// testing no language string provided whatsoever
 	t.Run("say 'Hello, World' when an empty string is supplied", func(t *testing.T) {
 		got := Hello("", "")
 		want := "Hello, World"
 		assertCorrectMessage(t, got, want)
 
 	})
+	// testing spanish string provided
 	t.Run("in Spanish", func(t *testing.T) {
 		got := Hello("Elodie", "Spanish")
 		want := "Hola, Elodie"
 		assertCorrectMessage(t, got, want)
 
 	})
+	// testing french string provided
 	t.Run("in French", func(t *testing.T) {
 		got := Hello("Jack", "French")
 		want := "Bonjour, Jack"
@@ -29,6 +32,7 @@ func TestHello(t *testing.T) {
 	})
 }
 
+// this function ensures the error message will direct us to the proper test block on failure
 func assertCorrectMessage(t testing.TB, got, want string) {
 	t.Helper()
 	if got != want {
